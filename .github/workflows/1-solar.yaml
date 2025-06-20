@@ -219,7 +219,7 @@ jobs:
       PORT: ${{ steps.myservice.outputs.PORT }}
     environment: 
       name: production 
-      url: http://3.136.148.224:${{ steps.myservice.outputs.PORT}}
+      url: http://3.136.148.224:${{ steps.myservice.outputs.PORT }}
     runs-on: ubuntu-latest
     steps: 
       - name: checkout repo 
@@ -272,7 +272,7 @@ jobs:
       - name: retriving the url of service with nodeport
         id: myservice
         run: | 
-          echo "PORTA=$(kubectl get svc  solar-system -n prod  -o jsonpath='{.spec.ports[0].nodePort}')"  >> $GITHUB_OUTPUT
+          echo "PORT=$(kubectl get svc  solar-system -n prod  -o jsonpath='{.spec.ports[0].nodePort}')"  >> $GITHUB_OUTPUT
 
   prod-integration-testing:
     if:  github.ref ==  'refs/heads/main'
