@@ -143,10 +143,10 @@ jobs:
   dev_deploy: 
     needs: docker
     outputs: 
-      PORT: ${{ steps.myservice.outputs.PORT}}
+      PORT: ${{ steps.myservice.outputs.PORT }}
     environment: 
       name: development
-      url: http://3.136.148.224:${{ steps.myservice.outputs.PORT}}
+      url: http://3.136.148.224:${{ steps.myservice.outputs.PORT }}
     runs-on: ubuntu-latest
     steps: 
       - name: checkout repo 
@@ -178,7 +178,7 @@ jobs:
         env:
           NAMESPACE: ${{ vars.NAMESPACE }}
           REPLICAS: ${{ vars.REPLICAS }}
-          IMAGE: ${{ vars.DOCKERHUB_USERNAME }}/solar-system:${{ github.sha}}
+          IMAGE: ${{ vars.DOCKERHUB_USERNAME }}/solar-system:${{ github.sha }}
 
       - name: printing yaml 
         run: | 
