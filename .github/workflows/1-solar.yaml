@@ -282,7 +282,7 @@ jobs:
     steps:
       - name: Test URL Mayank
         env:
-          PRODPORT: ${{ needs.prod_deploy.outputs.PORTA }}
+          PRODPORT: ${{ needs.prod_deploy.outputs.PORT }}
         run: | 
           curl  http://3.136.148.224:$PRODPORT/live  -s -k  | grep -i live
 
